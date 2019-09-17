@@ -5,20 +5,19 @@ from django.views.generic import ListView
 from .models import Item
 
 # Define the home view
-class IndexView(ListView):
+class ItemIndex(ListView):
     model = Item
 
 
 class ItemCreate(CreateView):
   model = Item
   fields = '__all__'
-  def form_valid(self, form):
-    form.save()  
-    return super(ItemCreate, self).form_valid(form) 
-
+  sucess_url = '/'
+ 
 class ItemDelete(DeleteView):
   model = Item
   success_url = '/'
+  
 
 
 
